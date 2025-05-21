@@ -14,21 +14,21 @@ services:
         value: pgsql
       - key: DB_HOST
         fromDatabase:
-          name: laravel_db
+          name: FirstPostgresInstance
           property: host
       - key: DB_PORT
         fromDatabase:
-          name: laravel_db
+          name: FirstPostgresInstance
           property: port
       - key: DB_DATABASE
         fromDatabase:
-          name: laravel_db
+          name: FirstPostgresInstance
           property: database
       - key: DB_USERNAME
         fromDatabase:
-          name: laravel_db
+          name: FirstPostgresInstance
           property: user
       - key: DB_PASSWORD
         fromDatabase:
-          name: laravel_db
+          name: FirstPostgresInstance
           property: password
