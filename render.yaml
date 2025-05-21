@@ -1,20 +1,17 @@
 services:
   - type: web
     name: laravel-app
-    env: php
+    env: docker
     repo: https://github.com/AlexSuvak94/cars_management
-    buildCommand: |
-      composer install
-      cp .env.example .env
-      php artisan key:generate
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    plan: free
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: APP_ENV
         value: production
       - key: APP_KEY
         generateValue: true
       - key: DB_CONNECTION
-        value: mysql
+        value: pgsql
       - key: DB_HOST
         fromDatabase:
           name: laravel_db_u7ih
