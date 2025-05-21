@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: laravel-app
+    env: php
+    repo: https://github.com/AlexSuvak94/cars_management
+    buildCommand: |
+      composer install
+      cp .env.example .env
+      php artisan key:generate
+    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        fromDatabase:
+          name: laravel_db_u7ih
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: laravel_db_u7ih
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: laravel_db_u7ih
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: laravel_db_u7ih
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: laravel_db_u7ih
+          property: password

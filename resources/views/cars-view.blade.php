@@ -64,11 +64,11 @@
 
         <div class="first-div">
             <button id="button-prev" style="align-self: flex-start" class="btn-class">Prev</button>
-            <p style="height: 0px;" class="pages-txt" id="myP">Page 1 of 12</p>
+            <p style="height: 0px;" class="pages-txt" id="myP"></p>
             <button id="button-next" style="align-self: flex-end" class="btn-class">Next</button>
         </div>
 
-        <button id="button-delete" style="align-self: flex-start" class="btn-class">Delete</button>
+        <button id="button-delete" disabled=true; style="align-self: flex-start" class="btn-class">Delete</button>
         
         <div class="alert-success" id="items-deleted-id" style="display:none">
             <p>Item(s) deleted successfully.</p>
@@ -93,6 +93,9 @@
         <br>
         <br>
         <br>
+        <summary style="font-size: 16px;">
+                Add New Item
+            </summary>
         <form id="carForm" class="car-form" action="{{ url('/add-car') }}" method="POST">
             @csrf
             <input type="text" name="manufacturer" placeholder="Manufacturer" required style="width: 18%;">

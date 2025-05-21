@@ -56,6 +56,8 @@ function deleteCars() {
         success: function () {
             updateTable();
             $('#items-deleted-id').prop('style', 'display:block'); // Show that items have been deleted
+
+            $('#button-delete').prop('disabled', true); // Reset to disabled, since no cars are selected anymore
         },
         error: function (xhr, status, error) {
             alert(error + "|" + xhr + "|" + status);
@@ -119,12 +121,36 @@ function updateTable() {
 
             $("#checkAll").prop("checked", false);
 
+
+            // Work on this
             $('#checkAll').on('change', function () {
                 $('.checkbox-class').prop('checked', this.checked);
+                const selected_cars2 = document.querySelectorAll(".checkbox-class:checked");
+                const IDs2 = Array.from(selected_cars2).map(cb => cb.value);
+
+                if (IDs2.length > 0) {
+                    $('#button-delete').prop('disabled', false);
+                } else {
+                    $('#button-delete').prop('disabled', true);
+                }
+            });
+
+            // Work on this
+            $('.checkbox-class').on('change', function () {
+                const selected_cars = document.querySelectorAll(".checkbox-class:checked");
+                const IDs = Array.from(selected_cars).map(cb => cb.value);
+
+                if (IDs.length > 0) {
+                    $('#button-delete').prop('disabled', false);
+                } else {
+                    $('#button-delete').prop('disabled', true);
+                }
             });
         },
         error: function (err) {
             console.error(err);
         }
     });
+
+
 }
