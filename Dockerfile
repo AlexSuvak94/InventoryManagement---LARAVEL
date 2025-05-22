@@ -20,9 +20,6 @@ WORKDIR /app
 # 5. Kopiraj fajlove
 COPY . .
 
-# 6. Napravi .env fajl
-RUN cp .env.example .env
-
 # 7. Instaliraj Laravel dependencije
 RUN composer install --no-interaction --optimize-autoloader
 
