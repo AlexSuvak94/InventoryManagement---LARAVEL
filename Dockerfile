@@ -1,34 +1,34 @@
-FROM php:8.2-fpm
+# 1. Bazna PHP slika sa potrebnim ekstenzijama
+FROM php:8.2-cli
 
-# Install system dependencies
+# 2. Instaliraj sistemske pakete
 RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libzip-dev \
-    unzip \
-    zip \
-    libpq-dev \
-    libonig-dev \
-    && docker-php-ext-install pdo pdo_pgsql mbstring zip
+    libzip-dev unzip git curl sqlite3 \
+    && docker-php-ext-install zip pdo pdo_sqlite
 
-# Install Composer
+# 3. Instaliraj Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
-WORKDIR /var/www
+# 4. Kreiraj radni direktorijum
+WORKDIR /app
 
-# Copy existing app
+# 5. Kopiraj fajlove
 COPY . .
 
-# Install PHP dependencies
-RUN composer install
+# 6. Napravi .env fajl
+RUN cp .env.example .env
 
-# Laravel-specific setup
+# 7. Instaliraj Laravel dependencije
+RUN composer install --no-interaction --optimize-autoloader
+
+# 8. Generiši aplikacijski ključ
 RUN php artisan key:generate
-RUN php artisan migrate --force
 
-# Expose port
-EXPOSE 8000
+# 9. Migracije (opciono, ako koristiš bazu)
+# RUN php artisan migrate --force
 
-# Start Laravel server
-CMD php artisan serve --host=0.0.0.0 --port=8000
+# 10. Laravel mora da sluša na 0.0.0.0:8080 na Renderu
+EXPOSE 8080
+
+# 11. Startuj aplikaciju
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
