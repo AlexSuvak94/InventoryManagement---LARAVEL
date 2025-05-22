@@ -3,7 +3,12 @@ FROM php:8.2-cli
 
 # 2. Instaliraj sistemske pakete
 RUN apt-get update && apt-get install -y \
-    libzip-dev unzip git curl sqlite3 \
+    libzip-dev \
+    libsqlite3-dev \
+    unzip \
+    git \
+    curl \
+    sqlite3 \
     && docker-php-ext-install zip pdo pdo_sqlite
 
 # 3. Instaliraj Composer
