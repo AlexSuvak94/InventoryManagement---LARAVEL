@@ -23,9 +23,6 @@ COPY . .
 # 7. Instaliraj Laravel dependencije
 RUN composer install --no-interaction --optimize-autoloader
 
-# 8. Generiši aplikacijski ključ
-RUN php artisan key:generate
-
 # 9. Migracije (opciono, ako koristiš bazu)
 # RUN php artisan migrate --force
 
