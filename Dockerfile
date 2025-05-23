@@ -24,8 +24,14 @@ COPY . .
 # 6. Install Laravel dependencies
 RUN composer install --no-interaction --optimize-autoloader
 
-# 7. Expose port 8080 (required for Render)
+# 7. Copy and set entrypoint script
+COPY entrypoint.sh /app/entrypoint.sh
+
+# (Optional) Make sure entrypoint script is executable (mostly for Linux hosts)
+RUN chmod +x /app/entrypoint.sh
+
+# 8. Expose port 8080 (required for Render)
 EXPOSE 8080
 
-# 8. Run Laravel's built-in server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+# 9. Use entrypoint script to run migrations and then start server
+ENTRYPOINT ["sh", "/app/entrypoint.sh"]
