@@ -81,15 +81,15 @@ function assignButtons() {
         if (switchPagesAllowed == true) {
             currentPage++;
             switchPagesAllowed = false;
+            updateTable();
         }
-        updateTable();
     });
     $('#button-prev').click(() => {
         if (switchPagesAllowed == true) {
             currentPage--;
             switchPagesAllowed = false;
+            updateTable();
         }
-        updateTable();
     });
 }
 
