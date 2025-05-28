@@ -3,6 +3,8 @@ let carsPerPage = 5;   // By default
 let sortOrder = "asc";   // By default
 let orderBy = "manufacturer";   // By default
 
+let updateTableAllowed = true;
+
 $(document).ready(function () {
     $('#filters-btn').on('click', function () {
         currentPage = 1;
@@ -76,11 +78,17 @@ function removeSuccessMessage() {
 
 function assignButtons() {
     $('#button-next').click(() => {
-        currentPage++;
+        if (updateTableAllowed == true) {
+            currentPage++;
+            updateTableAllowed = false;
+        }
         updateTable();
     });
     $('#button-prev').click(() => {
-        currentPage--;
+        if (updateTableAllowed == true) {
+            currentPage--;
+            updateTableAllowed = false;
+        }
         updateTable();
     });
 }
@@ -101,6 +109,9 @@ function updateTable() {
             + '&hpMax=' + $('#hp-max').val(),
         method: 'GET',
         success: function (cars) {
+
+            updateTableAllowed = true;
+
             const cars_var = cars.CARS.data;
             const table_body = $('#carTable tbody');
             table_body.empty();
