@@ -3,7 +3,7 @@ let carsPerPage = 5;   // By default
 let sortOrder = "asc";   // By default
 let orderBy = "manufacturer";   // By default
 
-let updateTableAllowed = true;
+let switchPagesAllowed = true; // This prevents switching too many pages before Ajax has loaded the page the user is looking for (in case of double-click on PREV/NEXT buttons, etc)
 
 $(document).ready(function () {
     $('#filters-btn').on('click', function () {
@@ -78,16 +78,16 @@ function removeSuccessMessage() {
 
 function assignButtons() {
     $('#button-next').click(() => {
-        if (updateTableAllowed == true) {
+        if (switchPagesAllowed == true) {
             currentPage++;
-            updateTableAllowed = false;
+            switchPagesAllowed = false;
         }
         updateTable();
     });
     $('#button-prev').click(() => {
-        if (updateTableAllowed == true) {
+        if (switchPagesAllowed == true) {
             currentPage--;
-            updateTableAllowed = false;
+            switchPagesAllowed = false;
         }
         updateTable();
     });
@@ -110,7 +110,7 @@ function updateTable() {
         method: 'GET',
         success: function (cars) {
 
-            updateTableAllowed = true;
+            switchPagesAllowed = true;
 
             const cars_var = cars.CARS.data;
             const table_body = $('#carTable tbody');
