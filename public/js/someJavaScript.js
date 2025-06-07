@@ -82,6 +82,7 @@ function assignButtons() {
             currentPage++;
             switchPagesAllowed = false;
             updateTable();
+            $('#button-delete').prop('disabled', true);
         }
     });
     $('#button-prev').click(() => {
@@ -89,6 +90,7 @@ function assignButtons() {
             currentPage--;
             switchPagesAllowed = false;
             updateTable();
+            $('#button-delete').prop('disabled', true);
         }
     });
 }
