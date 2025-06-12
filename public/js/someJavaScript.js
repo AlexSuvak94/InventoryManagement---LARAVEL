@@ -31,6 +31,7 @@ $(document).ready(function () {
         carsPerPage = Number(newValue);
         currentPage = 1;
         updateTable();
+        $('#button-delete').prop('disabled', true);
     });
 
     assignButtons(); // Next and Prev buttons
