@@ -13,8 +13,8 @@ class CarController extends Controller
             'manufacturer' => 'required|string|max:255',
             'model' => 'required|string|max:255',
             'year' => 'required|integer|min:1900|max:2025',
-            'horsepower' => 'required|integer|min:0',
-            'price' => 'required|numeric|min:0',
+            'horsepower' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:1',
         ]);
 
         $car = Car::create($validated);
