@@ -7,6 +7,7 @@ let switchPagesAllowed = true; // This prevents switching too many pages before 
 
 $(document).ready(function () {
     $('#filters-btn').on('click', function () {
+        $('#filters-btn').text("Applying...");
         currentPage = 1;
         updateTable();
     });
@@ -114,6 +115,8 @@ function updateTable() {
             + '&hpMax=' + $('#hp-max').val(),
         method: 'GET',
         success: function (cars) {
+
+            $('#filters-btn').text("Apply Filters");
 
             switchPagesAllowed = true;
 
