@@ -17,11 +17,13 @@ $(document).ready(function () {
 
     $("#options").on("change", function () {
         orderBy = $("#options").val();
+        $('#button-delete').prop('disabled', true);
         updateTable();
     });
 
     $("#options2").on("change", function () {
         sortOrder = $("#options2").val();   // ASC or DSC
+        $('#button-delete').prop('disabled', true);
         updateTable();
     });
 
