@@ -7,9 +7,9 @@ This project is not live. To test it, you need to set it up locally.
 
 
 FEATURES:  
-    - User-friendly dashboard to view all cars. 
-    - Add new cars with details like model, year, price, etc. 
-    - Edit or delete existing car entries. 
-    - Sort and filter cars by various criteria (e.g., price, model year). 
-    - Built with Laravel and Blade templates. 
-    - Advanced filters included! 
+    - User-friendly dashboard to view all cars.  
+    - Add new cars with details like model, year, price, etc.  
+    - Edit or delete existing car entries.  
+    - Sort and filter cars by various criteria (e.g., price, model year).  
+    - Built with Laravel and Blade templates.  
+    - Advanced filters included!  
