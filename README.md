@@ -1,12 +1,12 @@
-ABOUT:  
+**ABOUT:**  
 A Laravel-based inventory management web application designed for managing car records. Users can add, update, delete, and view cars in a dashboard interface with sorting and filtering options.
   
 
-PLEASE NOTE:  
+**PLEASE NOTE:**  
 This project is not live. To test it, you need to set it up locally.
   
 
-FEATURES:  
+**FEATURES:**  
     - User-friendly dashboard to view all cars.  
     - Add new cars with details like model, year, price, etc.  
     - Edit or delete existing car entries.  
