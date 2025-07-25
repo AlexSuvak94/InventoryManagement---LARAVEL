@@ -1,10 +1,11 @@
-PLEASE NOTE:
+A Laravel-based inventory management web application designed for managing car records. Users can add, update, delete, and view cars in a dashboard interface with sorting and filtering options.
 
-The project is live on: https://cars-management.onrender.com/
+PLEASE NOTE: This project is not live. To test it, you need to set it up locally.
 
-
-WHAT IS IT ABOUT:
-
-This is a test website that shows cars from the database. Users can sort cars by different criteria and apply various filters.
-
-Users can also ADD/DELETE cars, so FEEL FREE to do it!
+FEATURES:
+    - User-friendly dashboard to view all cars.
+    - Add new cars with details like model, year, price, etc.
+    - Edit or delete existing car entries.
+    - Sort and filter cars by various criteria (e.g., price, model year).
+    - Built with Laravel and Blade templates.
+    - Advanced filters included!
