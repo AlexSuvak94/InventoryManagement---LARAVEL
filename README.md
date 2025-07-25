@@ -3,7 +3,7 @@ A Laravel-based inventory management web application designed for managing car r
   
   
 **PLEASE NOTE:**  
-This project is not live. To test it, you need to set it up locally.
+*This project is not live. To test it, you need to set it up locally.*
   
   
 **FEATURES:**  
